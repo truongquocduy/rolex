@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/admin_page.css">
+    <title>Document</title>
+    <style>
+        @media only screen and (max-width:550px){
+            .menu{
+                width: 100%;
+                height: 700px;
+                float: left;
+                position: unset;
+            }
+            .appli{
+                width: 100%;
+                float: right;
+            }
+        }
+   </style>
+   <script>
+    window.onload = function(){
+        loadkhunggiohang();
+    }
+</script>
+</head>
+<body>
+    <div class="container-fluid"  style="padding: 0 0px 0 0;overflow: hidden;">
+        <div class="menu mb-4">
+            <div class="row pl-4 pr-4">
+                <img src="../img/logo.png" class="w-100 pt-5 mt-5 pl-3 pr-3" alt="">
+                <ul class="w-100 p-4" style="list-style: none;border: 1px solid #ddd;cursor: pointer; padding: 0;border-radius: 5px;">
+                    <li><a href="#" class="text-dark" style="text-decoration: none;"><strong>Home</strong></a></li> <hr>
+                    <li><strong onclick="clickadd();">Add Product</strong></li> <hr>
+                    <li><strong onclick="clickproduct();">Products</strong></li> <hr>
+                    <li><strong>Contact</strong></li> <hr>
+                    <li><strong>Reports</strong></li>
+                </ul>
+            </div>
+        </div>
+        <div class="appli">
+            <div class="row ml-2" id="products">
+                <div class="col-lg-12 pl-4 pt-3 pb-3" style="background-color: white;">
+                    <h5>Product</h5>
+                </div>
+                <div class="col-lg-12 mt-3" style="background-color: white;">
+                    <table class="table table-striped table-hover" id="caibang">
+                        <thead>
+                          <tr>
+                            <th>Hình ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Mã</th>
+                            <th>Giá</th>
+                            <th>Danh mục</th>
+                            <th>Xóa</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <div class="row ml-2 pb-5" id="addproduct">
+                <div class="col-lg-12 pl-4 pt-3 pb-3" style="background-color: white;">
+                    <h5>Add Product</h5>
+                </div>
+                <div class="col-lg-5 mt-3 text-center pt-5 pb-3" style="background-color: white;">
+                    <h4>THÔNG TIN SẢN PHẨM</h4>
+                    <form action="#" id="addproduct__form">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <td>Mã sản phẩm:</td>
+                                <td>
+                                    <input type="text" class="w-100" name="ma">    
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Tên sản phẩm:</td>
+                                <td>
+                                    <input type="text" class="w-100" name="ten">    
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Hình ảnh:</td>
+                                <td>
+                                    <input type="file" name="userfile" id="hinhanh_input">    
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Giá</td>
+                                <td>
+                                    <input type="number" class="w-100" name="gia">    
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Danh mục</td>
+                                <td>
+                                    <input type="text" class="w-100" name="danhmuc">    
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        
+                        <button class="btn btn-primary" type="button" onclick="xemketqua();">XEM KẾT QUẢ</button>
+                    </form>
+                </div>
+                
+               <div class="col-lg-12 mt-3" id="phanketquahienthi">
+                   <div class="row">
+                    <div class="col-lg-6 text-center" style="background-color: white;">
+                        <img src="../img/sanpham/sp7.jpg" class="w-75 pt-4 pb-4" alt="" id="hinh__ketqua">
+                    </div>
+                    <div class="col-lg-6 pt-4"  style="background-color: white;">
+                        <h3 style="font-family:Arial, Helvetica, sans-serif; color: #334862; font-weight: 500;" id="title__ketqua">OMEGA SEAMASTER AQUA TERRA WATCH 34MM</h3>
+                        <h4><strong style="font-weight: 500;" id="gia__ketqua">423,150,000 đ</strong></h4>
+                        <hr>
+                        <ul style="font-size: 16px;list-style: none;padding: 0;">
+                            <li><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Sản phẩm nhập khẩu chính hãng.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Vận chuyển miễn phí toàn quốc.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Giao hàng trong ngày.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Thanh toán sau khi nhận hàng.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Bảo hành 5 năm tại công ty.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Bảo hành chính hãng toàn cầu</li>
+                        </ul>
+                        <hr>
+                        <p id="ma__ketqua">123123</p>
+                        <button type="button" class="pl-4 pr-4 pt-2 pb-2" style="background-color: #cbba9c; border: none; color: aliceblue;outline: unset;"><strong>ĐỌC THÊM</strong></button>
+                    </div>
+                   </div>
+                   <button class="btn btn-success w-100 pt-3 pb-3 mt-5" onclick="dangsanpham()">ĐĂNG SẢN PHẨM</button>
+               </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <!-- <div class="row justify-content-center pl-4 pr-4 pb-5" style="background-image: url(../img/slider1.jpg);background-size: 100%;background-color: rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5);">
+            <div class="col-lg-10 mt-5">
+                <div class="row text-light">
+                    <div class="col-lg-3">
+                        <img src="../img/logo_footer.png" class="w-100" alt="">
+                    </div>
+                    <div class="col-lg-3 text-light">
+                        <ul style="line-height: 30px;">
+                            <li>360 Trần Phú, Thành phố Bạc Liêu, Bạc Liêu</li>
+                            <li>0369082061</li>
+                            <li>quocduy13579113@gmail.com</li>
+                            <li>Công nghệ thông tin TP.HCM</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h5>FOLLOW US</h5>
+                        <p class="text-secondary">Follow để không bỏ lỡ bất kì ưu đãi nào</p>
+                        <i class="fab fa-facebook-f mr-3" style="font-size: 25px;"></i>
+                        <i class="fab fa-youtube" style="font-size: 25px;"></i>
+                    </div>
+                    <div class="col-lg-3">
+                        <h5>ĐĂNG KÝ</h5>
+                        <p class="text-secondary">Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</p>
+                        <form action="#">
+                            <input class="w-75" type="email" placeholder="Email. . ." style="height: 40px;"> <br> <br>
+                            <button class="btn btn-primary" type="submit">Subcribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div> 
+</body>
+<script src="../js/script_admin.js"></script>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/script.js"></script>
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            document.getElementById('product_daidien').attributes[0].value = JSON.parse(localStorage.getItem("product_img"));
+            document.getElementById('product_title').innerText = JSON.parse(localStorage.getItem("product_title"));
+            document.getElementById('product_gia').innerText = JSON.parse(localStorage.getItem("product_gia"));
+        }
+    </script>
+</head>
+<body>
+    <div class="container-fluid"  style="padding: 0 0px 0 0;overflow: hidden;">
+        <!-- xỬ LÍ PHẦN ĐĂNG NHẬP -->
+        <div id="khungdangnhap" class="pl-2 pr-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-10 bg-warning">
+                    <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif; font-weight: 800; font-size: 40px;color: #CBBA9C;"><font style="color: black;">YOUR ACCOUNT</font></h3>
+                </div>
+                <div class="col-lg-10 pb-5">
+                    <form id="dangnhap_form" action="#">
+                        <div class="input-group mb-3 mt-5">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">Tài khoản</span>
+                            </div>
+                            <input type="text" class="form-control" id="account" placeholder="" autocomplete="off">
+                        </div>
+                        <p class="text-danger" id="check_account" style="padding: 3px;"></p>
+                        <div class="input-group mb-3 mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Mật khẩu</span>
+                            </div>
+                            <input type="password" class="form-control" id="password" placeholder="" autocomplete="off">
+                        </div>
+                        <p class="text-danger" id="check_password" style="padding: 3px;"></p>
+                        <div class="custom-control custom-switch pb-2">
+                            <input type="checkbox" class="custom-control-input" id="switch1">
+                            <label class="custom-control-label" for="switch1">Hiện thị mật khẩu</label>
+                        </div>
+                        <button class="btn btn-success w-50" type="button" onclick="form_check()">ĐĂNG NHẬP</button>
+                        <button class="btn btn-danger w-25 ml-5"  onclick="closedangnhap();">QUAY LẠI</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="">
+            <div class="col-lg-2 col-4 pl-4">
+                <img src="../img/logo.png" alt="" class="w-100">
+            </div>
+            <div class="col-lg-8 col-8">
+                <div class="row justify-content-end" style="padding-top: 5%;box-sizing: border-box;">
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search"></i></div>
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-user-alt" style="cursor: pointer;" onclick="clickdangnhap();"></i></div>
+                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong>0đ</strong> <i class="fas fa-shopping-cart"></i></div>
+                </div>
+            </div>   
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #0a0a0a">
+          
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar" >
+              <ul class="navbar-nav" style="font-weight: 600;font-size: 17px;">
+                <li class="nav-item ml-3 pt-2 pb-2">
+                  <a class="nav-link" href="../html/index.html" style="color:#edd8bc;">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item ml-3 pt-2 pb-2">
+                  <a class="nav-link" href="../html/sanphamhot.html" style="color:#edd8bc;">SẢN PHẨM HOT</a>
+                </li>
+                <li class="nav-item ml-3 pt-2 pb-2">
+                  <a class="nav-link" href="../html/sale.html" style="color:#edd8bc;">SALE</a>
+                </li>
+                <li class="nav-item ml-3 pt-2 pb-2">
+                  <a class="nav-link" href="#" style="color:#edd8bc;">ĐỒNG HỒ NỮ</a>
+                </li>
+                <li class="nav-item ml-3 pt-2 pb-2">
+                    <a class="nav-link" href="#" style="color:#edd8bc;">ĐỒNG HỒ NAM</a>
+                  </li>
+                  <li class="nav-item ml-3 pt-2 pb-2">
+                    <a class="nav-link" href="../html/contact.html" style="color:#edd8bc;">LIÊN HỆ</a>
+                  </li>
+                  <li class="nav-item ml-3 pt-2 pb-2">
+                    <a class="nav-link" href="../html/gioithieu.html" style="color:#edd8bc;">GIỚI THIỆU</a>
+                  </li>
+              </ul>
+            </div>
+        </nav>
+       <div class="row justify-content-center pl-3">
+            <div class="col-lg-10">
+                <div class="row mt-5">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12"><img src="" class="w-75 mx-auto d-block" alt="" id="product_daidien"></div>
+                            <div class="col-lg-12">
+                                <img src="../img/sanpham/sp1.jpg" style="width:20%;" alt="">
+                                <img src="../img/sanpham/sp2.jpg" style="width:20%;" alt="">
+                                <img src="../img/sanpham/sp3.jpg" style="width:20%;" alt="">
+                                <img src="../img/sanpham/sp4.jpg" style="width:20%;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h6>TRANG CHỦ / SẢN PHẨM HOT</h6>
+                        <h3 style="font-family:Arial, Helvetica, sans-serif; color: #334862; font-weight: 500;" id="product_title"></h3>
+                        <h4><strong style="font-weight: 500;" id="product_gia"></strong></h4>
+                        <hr>
+                        <ul style="font-size: 16px;list-style: none;padding: 0;">
+                            <li><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Sản phẩm nhập khẩu chính hãng.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Vận chuyển miễn phí toàn quốc.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Giao hàng trong ngày.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Thanh toán sau khi nhận hàng.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Bảo hành 5 năm tại công ty.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Bảo hành chính hãng toàn cầu.</li>
+                            <li><i class="fas fa-chevron-right"  style="font-size: 10px;"></i> Gọi ngay <strong>0369082061</strong> để được tư vấn thêm.</li>
+                        </ul>
+                        <hr>
+                        <p>Mã: 123123</p>
+                        <button type="button" class="pl-4 pr-4 pt-2 pb-2" style="background-color: #cbba9c; border: none; color: aliceblue;outline: unset;"><strong>THÊM VÀO GIỎ HÀNG</strong></button>
+                    </div>
+                </div>
+            </div>
+       </div>
+        <!-- footer -->
+        <div class="row justify-content-center mt-5 pl-4 pr-4 pb-5" style="background-image: url(../img/slider1.jpg);background-size: 100%;background-color: rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5);">
+            <div class="col-lg-10 mt-5">
+                <div class="row text-light">
+                    <div class="col-lg-3">
+                        <img src="../img/logo_footer.png" class="w-100" alt="">
+                    </div>
+                    <div class="col-lg-3 text-light">
+                        <ul style="line-height: 30px;">
+                            <li>360 Trần Phú, Thành phố Bạc Liêu, Bạc Liêu</li>
+                            <li>0369082061</li>
+                            <li>quocduy13579113@gmail.com</li>
+                            <li>Công nghệ thông tin TP.HCM</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h5>FOLLOW US</h5>
+                        <p class="text-secondary">Follow để không bỏ lỡ bất kì ưu đãi nào</p>
+                        <i class="fab fa-facebook-f mr-3" style="font-size: 25px;"></i>
+                        <i class="fab fa-youtube" style="font-size: 25px;"></i>
+                    </div>
+                    <div class="col-lg-3">
+                        <h5>ĐĂNG KÝ</h5>
+                        <p class="text-secondary">Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</p>
+                        <form action="#">
+                            <input class="w-75" type="email" placeholder="Email. . ." style="height: 40px;"> <br> <br>
+                            <button class="btn btn-primary" type="submit">Subcribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

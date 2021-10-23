@@ -1,0 +1,39 @@
+#khungdangnhap{
+    position: fixed;
+    top: 28%;
+    z-index: 20;
+    background: white;
+    left: 27%;
+    display: none;
+}
+.nav__btn{
+    width: 150px;
+    height: 50px;
+    background: none;
+    border: 3px solid #cbba9c;
+    outline: none;
+    color: #cbba9c;
+}
+.banner{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+}
+.sp{
+    width: 30%;
+    height: auto;
+    float: left;
+
+}
+.sp:hover{
+    animation: sp_hover linear .2s forwards;
+    box-shadow: 0px 30px 40px 0px rgb(0 0 0 / 20%);
+}
+@keyframes sp_hover{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-10px);
+    }
+}
