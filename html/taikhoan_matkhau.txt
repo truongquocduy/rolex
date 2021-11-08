@@ -1,0 +1,5 @@
+tài khoản: admin
+mật khẩu: 123456
+
+tài khoản: khachhang
+mật khẩu: 123456

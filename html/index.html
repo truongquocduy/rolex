@@ -17,7 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/script.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -34,11 +33,19 @@
             background: white;
             left: 0%;
             display: none;
-        }   
+        }  
+        #sale{
+            width: 90%;
+            right: 5%;
+        } 
      }
 </style>
 <body>
     <div class="container-fluid" style="padding: 0 0px 0 0;overflow: hidden;">
+        <!-- xử lí phần sale -->
+        <div id="sale" onclick="alert('Mã giảm giá 50%: quocduy123')">
+            <img src="../img/sale.png" class="w-100" alt="">
+        </div>
         <!-- xỬ LÍ PHẦN ĐĂNG NHẬP -->
         <div id="khungdangnhap" class="pl-2 pr-2">
             <div class="row justify-content-center">
@@ -58,7 +65,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Mật khẩu</span>
                             </div>
-                            <input type="password" class="form-control" id="password" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" id="password" placeholder="" autocomplete="off">
                         </div>
                         <p class="text-danger" id="check_password" style="padding: 3px;"></p>
                         <div class="custom-control custom-switch pb-2">
@@ -79,9 +86,15 @@
             </div>
             <div class="col-lg-8 col-8">
                 <div class="row justify-content-end" style="padding-top: 5%;box-sizing: border-box;">
-                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search"></i></div>
+                    <div id="khungtimkiem" class="col-lg-4 col-10" style="font-size: 18px;color: #727477d8;">
+                        <input class="w-100 search" type="text" id="search_input" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="row pl-3 pr-4 mt-2" style="position: absolute;z-index: 11;" id="ketqua_search">
+                           <!-- load kết quả search -->
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search" onclick="click_search()" style="cursor: pointer;"></i></div>
                     <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-user-alt" style="cursor: pointer;" onclick="clickdangnhap();"></i></div>
-                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong>0đ</strong> <i class="fas fa-shopping-cart"></i></div>
+                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong id="tong"></strong> <i class="fas fa-shopping-cart" onclick="window.location.href = '../html/giohang.html'" style="cursor: pointer;"></i></div>
                 </div>
             </div>  
         </div>
@@ -340,4 +353,6 @@
         </div>
     </div><!-- container-fluid -->
 </body>
+<script src="../js/script.js"></script>
+<script src="../js/onload_tongtien.js"></script>
 </html>

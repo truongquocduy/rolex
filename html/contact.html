@@ -17,7 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/script.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -27,10 +26,16 @@
                 <img src="../img/logo.png" alt="" class="w-100">
             </div>
             <div class="col-lg-8 col-8">
-                <div class="row justify-content-end" style="padding-top: 3%;box-sizing: border-box;">
-                    <div class="col-lg-1 col-3" style="font-size: 22px;"><i class="fas fa-search"></i></div>
-                    <div class="col-lg-1 col-3" style="font-size: 22px;"><i class="fas fa-user-alt"></i></div>
-                    <div class="col-lg-2 col-5" style="font-size: 22px;"><strong>0đ</strong> <i class="fas fa-shopping-cart"></i></div>
+                <div class="row justify-content-end" style="padding-top: 5%;box-sizing: border-box;">
+                    <div id="khungtimkiem" class="col-lg-4 col-10" style="font-size: 18px;color: #727477d8;">
+                        <input class="w-100 search" type="text" id="search_input" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="row pl-3 pr-4 mt-2" style="position: absolute;z-index: 11;" id="ketqua_search">
+                           <!-- load kết quả search -->
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search" onclick="click_search()" style="cursor: pointer;"></i></div>
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-user-alt" style="cursor: pointer;" onclick="clickdangnhap();"></i></div>
+                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong id="tong"></strong> <i class="fas fa-shopping-cart" onclick="window.location.href = '../html/giohang.html'" style="cursor: pointer;"></i></div>
                 </div>
             </div>  
         </div>
@@ -94,13 +99,13 @@
                             </div>
                             <div class="col-lg-12">
                                 <h3 class="text-center">LIÊN HỆ VỚI CHÚNG TÔI</h3>
-                                <form action="#" class="text-center">
-                                    <input type="text" style="height: 40px;width: 40%;" placeholder="Họ và tên">
-                                    <input type="email" style="height: 40px;width: 40%;" placeholder="Email">
-                                    <input class="mt-3" type="text" style="height: 40px;width: 40%;" placeholder="Số điện thoại">
-                                    <input class="mt-3" type="text" style="height: 40px;width: 40%;" placeholder="Địa chỉ">
-                                    <textarea class="form-control mx-auto d-block mt-3" style="width:80%;" rows="5" id="" placeholder="Nội dung"></textarea>
-                                    <button class="btn btn-success mt-3" style="width:80%;">GỬI TIN NHẮN</button>
+                                <form action="javascript:sendmail()" method="post" class="text-center" id="contact_form">
+                                    <input type="text" style="height: 40px;width: 40%;" name="hoten" placeholder="Họ và tên">
+                                    <input type="email" style="height: 40px;width: 40%;" name="email" placeholder="Email">
+                                    <input class="mt-3" type="text" style="height: 40px;width: 40%;" name="subject" placeholder="Tiêu đề">
+                                    <input class="mt-3" type="text" style="height: 40px;width: 40%;" name="sdt" placeholder="Số điện thoại">
+                                    <textarea class="form-control mx-auto d-block mt-3" style="width:80%;" name="noidung" rows="5" id="" placeholder="Nội dung"></textarea>
+                                    <button type="submit" class="btn btn-success mt-3" style="width:80%;">GỬI TIN NHẮN</button>
                                 </form>
                             </div>
                         </div>
@@ -142,4 +147,7 @@
         </div>
     </div>
 </body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/onload_tongtien.js"></script>
 </html>

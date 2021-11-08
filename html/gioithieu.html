@@ -19,6 +19,16 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/script.js"></script>
     <title>Document</title>
+    <script>
+        window.onload = function(){
+            var giohang_mangsp = JSON.parse(localStorage.getItem('giohang_mang'))
+            var tong = 0;
+            for(let x of giohang_mangsp){
+                tong += parseInt(x.giasp.split(',').join('').split('₫').join('').split('đ').join(''));
+            }
+            document.getElementById('tong').innerText = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '₫';
+        }
+    </script>
 </head>
 <body>
     <div class="container-fluid"  style="padding: 0 0px 0 0;overflow: hidden;">
@@ -27,12 +37,12 @@
                 <img src="../img/logo.png" alt="" class="w-100">
             </div>
             <div class="col-lg-8 col-8">
-                <div class="row justify-content-end" style="padding-top: 3%;box-sizing: border-box;">
-                    <div class="col-lg-1 col-3" style="font-size: 22px;"><i class="fas fa-search"></i></div>
-                    <div class="col-lg-1 col-3" style="font-size: 22px;"><i class="fas fa-user-alt"></i></div>
-                    <div class="col-lg-2 col-5" style="font-size: 22px;"><strong>0đ</strong> <i class="fas fa-shopping-cart"></i></div>
+                <div class="row justify-content-end" style="padding-top: 5%;box-sizing: border-box;">
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search"></i></div>
+                    <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-user-alt" style="cursor: pointer;" onclick="clickdangnhap();"></i></div>
+                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong id="tong"></strong> <i class="fas fa-shopping-cart" onclick="window.location.href = '../html/giohang.html'"></i></div>
                 </div>
-            </div>  
+            </div> 
         </div>
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #0a0a0a">
           

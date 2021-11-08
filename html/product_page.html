@@ -19,13 +19,6 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/script.js"></script>
     <title>Document</title>
-    <script>
-        window.onload = function(){
-            document.getElementById('product_daidien').attributes[0].value = JSON.parse(localStorage.getItem("product_img"));
-            document.getElementById('product_title').innerText = JSON.parse(localStorage.getItem("product_title"));
-            document.getElementById('product_gia').innerText = JSON.parse(localStorage.getItem("product_gia"));
-        }
-    </script>
 </head>
 <body>
     <div class="container-fluid"  style="padding: 0 0px 0 0;overflow: hidden;">
@@ -70,7 +63,7 @@
                 <div class="row justify-content-end" style="padding-top: 5%;box-sizing: border-box;">
                     <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-search"></i></div>
                     <div class="col-lg-1 col-2" style="font-size: 18px;color: #727477d8;"><i class="fas fa-user-alt" style="cursor: pointer;" onclick="clickdangnhap();"></i></div>
-                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong>0đ</strong> <i class="fas fa-shopping-cart"></i></div>
+                    <div class="col-lg-2 col-4" style="font-size: 18px;color: #727477d8;"><strong id="tong"></strong> <i class="fas fa-shopping-cart" onclick="window.location.href = '../html/giohang.html'"></i></div>
                 </div>
             </div>   
         </div>
@@ -138,7 +131,7 @@
                         </ul>
                         <hr>
                         <p>Mã: 123123</p>
-                        <button type="button" class="pl-4 pr-4 pt-2 pb-2" style="background-color: #cbba9c; border: none; color: aliceblue;outline: unset;"><strong>THÊM VÀO GIỎ HÀNG</strong></button>
+                        <button type="button" class="pl-4 pr-4 pt-2 pb-2" style="background-color: #cbba9c; border: none; color: aliceblue;"><strong onclick="addgiohang()">THÊM VÀO GIỎ HÀNG</strong></button>
                     </div>
                 </div>
             </div>
@@ -177,4 +170,5 @@
         </div>
     </div>
 </body>
+<script src="../js/onload_product_page.js"></script>
 </html>

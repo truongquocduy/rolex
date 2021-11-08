@@ -44,7 +44,7 @@
             <div class="row pl-4 pr-4">
                 <img src="../img/logo.png" class="w-100 pt-5 mt-5 pl-3 pr-3" alt="">
                 <ul class="w-100 p-4" style="list-style: none;border: 1px solid #ddd;cursor: pointer; padding: 0;border-radius: 5px;">
-                    <li><a href="#" class="text-dark" style="text-decoration: none;"><strong>Home</strong></a></li> <hr>
+                    <li><a href="../html/index.html" class="text-dark" style="text-decoration: none;"><strong>Home</strong></a></li> <hr>
                     <li><strong onclick="clickadd();">Add Product</strong></li> <hr>
                     <li><strong onclick="clickproduct();">Products</strong></li> <hr>
                     <li><strong>Contact</strong></li> <hr>
@@ -111,7 +111,23 @@
                               <tr>
                                 <td>Danh mục</td>
                                 <td>
-                                    <input type="text" class="w-100" name="danhmuc">    
+                                    <select name="" id="danhmuc" class="w-100">
+                                        <option value="">Không</option>
+                                        <option value="casio">Casio</option>
+                                        <option value="movado">Movado</option>
+                                        <option value="omega">Omega</option>
+                                        <option value="rolex">Rolex</option>
+                                        <option value="donghonam">Đồng hồ nam</option>
+                                    </select>      
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Sale</td>
+                                <td>
+                                    <select name="" id="sale" class="w-100">
+                                        <option value="no">Không</option>
+                                        <option value="sale">Có Sale</option>
+                                    </select>      
                                 </td>
                               </tr>
                             </tbody>
