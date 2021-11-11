@@ -1,14 +1,18 @@
+// ĐÂY LÀ JS XỬ LÍ TRANG GIỎ HÀNG
 /**
- * Phương thức khi người dùng nhất nút xóa giỏ hàng
+ * Phương thức khi người dùng nhất nút xóa giỏ hàng hay là làm mới giỏ hàng
+ * Nguyên tắc hoạt động: Khi người dùng xóa giỏ hàng tại trang giỏ hàng -- Trên localstore mất biến giỏ hàng
  */
 xoagiohang = () => {
     localStorage.removeItem('giohang_mang');// biến giỏ hàng trên localstorage sẽ bị xóa
     window.location.href = '../html/giohang.html'// sau đó load lại trang web..vì lúc này mảng giỏ hàng là mảng trống nên không xuất kết quả ra màn hình
 }
-    //khi load trang giỏ hàng
+//--------------------------------------------------------------------------------------
+
+    //Hàm dưới đây là hàm chạy khi trang giỏ hàng được load.
     window.onload = function(){
-        var table = document.getElementById('banggiohang');// DOM đến table giỏ hàng
-        var giohang_mangsp = JSON.parse(localStorage.getItem('giohang_mang'))// lấy mảng giỏ hàng và gán vào biến
+        var table = document.getElementById('banggiohang');// DOM đến table giỏ hàng-- là nơi hiển thị sản phẩm trong mảng giỏ hàng
+        var giohang_mangsp = JSON.parse(localStorage.getItem('giohang_mang'))// lấy mảng giỏ hàng từ local và gán vào biến
         // vòng lặp for này dùng để xóa tất cả những dòng trong table..vì nếu không xóa, mỗi lần load trang table cứ thể mà tăng cấp số nhân
         for(let i = table.rows.length - 1; i > 0 ; i-- ){
             table.deleteRow(i);
@@ -35,7 +39,7 @@ xoagiohang = () => {
             }
 
         /**
-         * Phương thức tính tổng tiền.
+         * Phương thức tính tổng tiền và hiện thị phần tổng phụ, tổng tiền tại trang giỏ hàng.
          */
         function tinhtongtien(){
                 var tong = 0;
@@ -61,12 +65,14 @@ xoagiohang = () => {
                     document.getElementById('tong').innerText = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                     document.getElementById('tongtien').innerText = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 }
+                //NOTE: phần tostring().replace....... có nghĩa là ngăn cách phần ngàn ví dụ không in 1000 mà in 1,000
        }
     }
     /**
      * phương thức khi nhấn nút đặt hàng sẽ gửi mail thông báo
      */
      function sendmail(){
+        luuthongtin()
         var giohang_mang = JSON.parse(localStorage.getItem('giohang_mang'));
         var phuongthucthanhtoan = document.getElementById('phuongthucthanhtoan')
         if(phuongthucthanhtoan.thanhtoan.value == 'tienmat'){
@@ -119,3 +125,29 @@ xoagiohang = () => {
                 Body: Body
             })
 }
+
+/**
+ * Phương thức lưu thông tin khách hàng
+ */
+function luuthongtin(){
+    let mangkhachhangcu = JSON.parse(localStorage.getItem('khachhang_array'))//gọi mảng khách hàng từ local
+    let giohang = JSON.parse(localStorage.getItem('giohang_mang'))//gọi mảng giỏ hàng từ local
+
+    var form = document.getElementById('thanhtoan_form')// DOM đến form thanh toán
+    var name = form.hoten.value;
+    var email = form.email.value;
+    var diachi = form.diachi.value;
+    var sdt = form.sdt.value;
+    //tạo đối tưởng khachhang để lưu thông tin đặt hàng
+    const khachhang = {
+        tenkh: name,
+        email,
+        diachi,
+        sdt,
+        sanpham: giohang,
+    }
+    mangkhachhangcu.push(khachhang)//push đối tượng khách hàng vào mangkhachhang
+    localStorage.setItem('khachhang_array',JSON.stringify(mangkhachhangcu))//update lại localstorage
+}
+
+

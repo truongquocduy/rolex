@@ -1,8 +1,11 @@
+// JS DƯỚI ĐÂY CHẠY TRƯỚC KHI TRANG SALE.HTML ĐƯỢC LOAD 
+//Nguyên tắc: gọi mảng sanpham từ locals, nếu sản phẩm nào có x.sale = 'sale' thì mới được load
 window.onload = function(){
     var mangsp = JSON.parse(localStorage.getItem('sanphammoi_array'))
     // console.log(mangsp[0].masp)
     for(let x of mangsp){
            if(x.sale == "sale"){
+               //COde tương tự trang sanphamhot.html
                 var nodecha = document.createElement("div");
                 nodecha.className = "sp col-6 col-lg-4 pl-3 pr-3 text-center pb-4 pt-4 " + x.danhmuc ;
                 nodecha.id = x.masp;
@@ -26,6 +29,7 @@ window.onload = function(){
                 document.getElementById('khungsanpham').appendChild(nodecha);
            }
     }
+    //Phần tính tổng tiền bên trái icon giỏ hàng trên header
     var giohang_mangsp = JSON.parse(localStorage.getItem('giohang_mang'))
     var tong = 0;
     for(let x of giohang_mangsp){

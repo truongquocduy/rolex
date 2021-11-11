@@ -21,6 +21,40 @@
 </head>
 <body>
     <div class="container-fluid"  style="padding: 0 0px 0 0;overflow: hidden;">
+        <!-- xỬ LÍ PHẦN ĐĂNG NHẬP -->
+        <div id="khungdangnhap" class="pl-2 pr-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-10 bg-warning">
+                    <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif; font-weight: 800; font-size: 40px;color: #CBBA9C;"><font style="color: black;">YOUR ACCOUNT</font></h3>
+                </div>
+                <div class="col-lg-10 pb-5">
+                    <form id="dangnhap_form" action="#" onsubmit="return form_check()">
+                        <div class="input-group mb-3 mt-5">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">Tài khoản</span>
+                            </div>
+                            <input type="text" class="form-control" id="account" placeholder="" autocomplete="off">
+                        </div>
+                        <p class="text-danger" id="check_account" style="padding: 3px;"></p>
+                        <div class="input-group mb-3 mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Mật khẩu</span>
+                            </div>
+                            <input type="text" class="form-control" id="password" placeholder="" autocomplete="off">
+                        </div>
+                        <p class="text-danger" id="check_password" style="padding: 3px;"></p>
+                        <div class="custom-control custom-switch pb-2">
+                            <input type="checkbox" class="custom-control-input" id="switch1">
+                            <label class="custom-control-label" for="switch1">Hiện thị mật khẩu</label>
+                        </div>
+                        <button class="btn btn-success w-50" type="submit" >ĐĂNG NHẬP</button>
+                        <button class="btn btn-danger w-25 ml-5"  onclick="closedangnhap();">QUAY LẠI</button>
+    
+                    </form>
+                </div>
+            </div>
+
+        </div>
          <!-- xỬ LÍ PHẦN THANH TOÁN -->
          <div id="khungthanhtoan" class="pl-2 pr-2">
             <div class="row justify-content-center">
@@ -250,4 +284,6 @@
 <script src="../js/script.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script src="../js/giohang.js"></script>
+<script src="../js/script_admin.js"></script>
+
 </html>

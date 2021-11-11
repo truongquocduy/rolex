@@ -17,7 +17,7 @@ function closedangnhap(){
 /**
  * Khi người dùng click đăng nhập form_check sẽ kích hoạt
  */
-form_check = () => {
+form_check = () => {    
     var frm = document.getElementById('dangnhap_form');// lấy thẻ form đăng nhập
     //Kiểm tra có đúng như tài khoản hoặc mật khẩu hay không, nếu đùng thì ẩn khung đăng nhập
     if(frm.account.value == CONNECT_ADMIN){
@@ -43,6 +43,8 @@ form_check = () => {
     else{
         document.getElementById('check_password').innerText = 'Tài khoản hoặc mật khẩu đăng nhập sai';
     }
+
+    return false;
 }
 
 

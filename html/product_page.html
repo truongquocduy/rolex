@@ -29,7 +29,7 @@
                     <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif; font-weight: 800; font-size: 40px;color: #CBBA9C;"><font style="color: black;">YOUR ACCOUNT</font></h3>
                 </div>
                 <div class="col-lg-10 pb-5">
-                    <form id="dangnhap_form" action="#">
+                    <form id="dangnhap_form" action="#" onsubmit="return form_check()">
                         <div class="input-group mb-3 mt-5">
                             <div class="input-group-prepend">
                             <span class="input-group-text">Tài khoản</span>
@@ -41,14 +41,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Mật khẩu</span>
                             </div>
-                            <input type="password" class="form-control" id="password" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" id="password" placeholder="" autocomplete="off">
                         </div>
                         <p class="text-danger" id="check_password" style="padding: 3px;"></p>
                         <div class="custom-control custom-switch pb-2">
                             <input type="checkbox" class="custom-control-input" id="switch1">
                             <label class="custom-control-label" for="switch1">Hiện thị mật khẩu</label>
                         </div>
-                        <button class="btn btn-success w-50" type="button" onclick="form_check()">ĐĂNG NHẬP</button>
+                        <button class="btn btn-success w-50" type="submit" >ĐĂNG NHẬP</button>
                         <button class="btn btn-danger w-25 ml-5"  onclick="closedangnhap();">QUAY LẠI</button>
     
                     </form>
@@ -171,4 +171,5 @@
     </div>
 </body>
 <script src="../js/onload_product_page.js"></script>
+<script src="../js/script_admin.js"></script>
 </html>
