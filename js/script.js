@@ -67,7 +67,7 @@ function clicksanpham(id){
  * Tham số đưa vào là giá trị của từng danh mục
  * ví dụ loai = 'casio'
  */
-locsp = (loai) => {
+locsp = (loai) => {// loai = casio
     var sanpham = document.getElementsByClassName('sp');
     // vòng lặp đầu tiên sẽ cho tất cả các sản phẩm ẩn đi hết
     for(let x of sanpham){
